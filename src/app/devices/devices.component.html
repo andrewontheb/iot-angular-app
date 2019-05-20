@@ -1,0 +1,45 @@
+
+<!-- <ul class="device-list text--head3">
+  <li #li *ngFor="let device of devices |filter:filter| paginate: { itemsPerPage: 8, currentPage: p }; let i = index">
+    <app-device [device]='device' class="device-list__item"></app-device>
+  </li>
+</ul> -->
+
+<div class="row" style="">
+  <div class="col-sm-5" style="padding-top:10px;padding-bottom:10px;" >
+       <input class="form-control" type="text" placeholder="Search..." [(ngModel)]="filter">
+  </div>
+</div>
+
+<div class="row" style="">
+<div class="col-lg-12 table-responsive hovered">
+  <table class="table table-sm table-striped table-bordered table-hover" style="width:500px;">
+    <thead class="thead-dark">
+      <tr>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Device Type</th>
+        <th>Position</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let device of devices |filter:filter| paginate: { itemsPerPage: 8, currentPage: p };">
+        <td style="max-width:200px; word-break: break-all;">{{device.name}}</td>
+        <td>{{device.status}}</td>
+        <td>{{device.type}}</td>
+        <td>
+          <div *ngIf="device.staticPosition && device.staticPosition.lat !== undefined" style="min-width:85px;">
+            <span>lat: </span>{{device.staticPosition.lat.toFixed(2)}}<br>
+            <span>lng: </span>{{device.staticPosition.lng.toFixed(2)}}
+          </div>
+          <div *ngIf="!device.staticPosition || device.staticPosition.lat == undefined"><b>No Data</b></div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</div>
+
+<ul class="pagination">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</ul>

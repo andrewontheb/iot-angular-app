@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+@mixin triangle-link ($dr:'right',$bg: #000,$bw:7px 0 7px 7px) {
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  border-style: solid;
+  border-width: #{$bw};
+  @if ($dr == 'left') {
+    left: 5px;
+    border-color: transparent #{$bg} transparent transparent;
+  } @else {
+    left: 15px;
+    border-color: transparent transparent transparent #{$bg};
+  }
+  transition: all .22s ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+ul,
+ol {
+  margin:  0;
+  padding: 0;
+}
+ul {
+  list-style-type: none;
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+table {
+  tr {
+    td,th {
+      vertical-align: middle !important;
+    }
+  }
+}
+
+  $font-size: 16px;
+  $font-color: #141c1f;
+  $mainFont: 'Montserrat', sans-serif;
+  $mainOrange: #ff6723;
+  $lightOrange: #ff8853;
+  $mainDark: #2f3c44;
+  $lime: #88D5C9;
+  $lightGrey: #A1AFB7;
+
+
+
+body {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: white;
+  font-size: $font-size;
+  font-family: $mainFont;
+}
+
+.btn {
+  display: inline-block;
+  min-width: 110px;
+  position: relative;
+  background: transparent;
+  border: 0;
+  margin: 2px 0;
+  padding: 10px 12px;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 3px;
+  font-family: $mainFont;
+  font-size: 14px;
+  transition: all .5s ease;
+  &--show-more {
+    background: $lime;
+    color: $font-color;
+    i {
+      @include triangle-link();
+
+    }
+    span {
+      margin-left: 10px;
+    }
+    &:hover {
+      background: $lightOrange;
+      color: white;
+      transition: all .5s ease;
+      i {
+        border-color: transparent transparent transparent white;
+      }
+    }
+    &.opened {
+      i {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+    }
+  }
+}
+
+.text {
+  font-family: $mainFont;
+  &--head1 {
+    font-size: 50px;
+  }
+  &--head2 {
+    font-size: 30px;
+  }
+  &--head3 {
+    font-size: 15px;
+  }
+  &--main {
+    font-size: 13px;
+  }
+  &--help {
+    font-size: 12px;
+    // color: $help;
+  }
+  // @include respond-below(lm) {
+  //   &--head1 {
+  //     font-size: 24px;
+  //   }
+  //   &--head2 {
+  //     font-size: 16px;
+  //   }
+  //   &--head3 {
+  //     font-size: 15px;
+  //   }
+  //   &--main {
+  //     font-size: 13px;
+  //   }
+  //   &--help {
+  //     font-size: 12px;
+  //   }
+  // }
+}
+
+app-devices {
+  // display: flex;
+}

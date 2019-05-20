@@ -1,0 +1,12 @@
+<agm-map [latitude]='latitude' [longitude]='longitude' [zoom]="2" (mapClick)="addMarker($event.coords.lat, $event.coords.lng)">
+  <agm-marker
+      *ngFor="let marker of markers"
+      [latitude]="marker.lat"
+      [longitude]="marker.lng"
+      [opacity]="marker.alpha"
+      [markerDraggable]="false"
+      (markerClick)="selectMarker($event)"
+    >
+    <agm-info-window>{{marker.name}}</agm-info-window>
+    </agm-marker>
+ </agm-map>

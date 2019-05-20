@@ -1,0 +1,9 @@
+<div id="pagination" *ngIf="pagesToShow.length > 0">
+  <ul class="list">
+    <li class="list__item">Prev</li>
+    <li *ngFor="let page of pagesToShow; let i = index" [class.active]="pageToGo == i+1"  class="list__item" (click)="getPageOfDevices(i+1)">{{i+1}}</li>
+    <li class="list__item">...</li>
+    <li class="list__item" (click)="getPageOfDevices(pages.length)" [class.active]="pageToGo == pages.length">{{pages.length}}</li>
+    <li class="list__item">Next</li>
+  </ul>
+</div>

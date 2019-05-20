@@ -1,0 +1,33 @@
+.device-list {
+  &__item {
+    &--btn {
+      margin-left: auto;
+    }
+
+    &--details {
+      opacity: 1;
+      flex: 1 100%;
+      // padding-left: 10px;
+    }
+
+    &--id-badge {
+      font-weight: bold;
+      padding: 10px;
+    }
+    &--name {
+      text-decoration: none;
+      color:inherit;
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+      span {
+        display: inline-block;
+        max-width: 250px;
+        word-break: break-word;
+      }
+    }
+    &.selected {
+
+    }
+  }
+}

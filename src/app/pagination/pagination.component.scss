@@ -1,0 +1,21 @@
+#pagination  {
+  position: absolute;
+  left: 10px;
+  bottom: -5%;
+  .list {
+    display: flex;
+    &__item {
+      min-width: 25px;
+      cursor: pointer;
+      padding: 0 5px;
+      color: #141c1f;
+      &:hover {
+        font-weight: 600;
+        transition: all .5s ease;
+      }
+      &.active {
+        font-weight: 600;
+      }
+    }
+  }
+}

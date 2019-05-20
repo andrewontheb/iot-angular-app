@@ -1,0 +1,33 @@
+$mainOrange: #ff6723;
+
+app-devices {
+  // position: absolute;
+  z-index: 1;
+  left: 10px;
+  top: 40px;
+}
+
+app-map {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  max-width: calc(100% - 500px);
+  padding-top: 58px;
+}
+
+.main-content {
+  display: flex;
+  flex-flow: row wrap;
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 10px 0 10px;
+  &__title {
+    color: $mainOrange;
+    text-align: center;
+    flex: 1 100%;
+  }
+  h2 {
+    flex: 1 100%;
+  }
+}

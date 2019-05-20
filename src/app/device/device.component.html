@@ -1,0 +1,24 @@
+
+  <a href="#" class="device-list__item--name">
+    <span>{{device.name}}</span>
+  </a>
+  <button type="button" name="button"  (click)="toggleDetails()" [class.opened]="detailsShown" class="btn btn--show-more text--help device-list__item--btn">
+    <i></i>
+    <div *ngIf="!detailsShown"><span>show details</span></div>
+    <div *ngIf="detailsShown">
+      <span>hide details</span>
+    </div>
+  </button>
+  <div *ngIf="detailsShown" class="device-list__item--details">
+    <label for=""><b>Position:</b></label>
+    <span *ngIf="!device.staticPosition"> no data</span>
+    <div *ngIf="device.staticPosition">
+      <div><span>lat: </span>{{device.staticPosition.lat}}</div>
+      <div><span>lng: </span>{{device.staticPosition.lng}}</div>
+    </div>
+    <div>
+      <label for=""><b>Status:</b> {{device.status}}</label><br>
+      <label for=""><b>Device Type:</b> {{device.type}}</label>
+    </div>
+
+  </div>
